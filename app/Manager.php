@@ -1,7 +1,12 @@
 <?php
 namespace App;
 
+
+
 abstract class Manager{
+
+    protected $tableName;
+    protected $className;
 
     protected function connect(){
         DAO::connect();

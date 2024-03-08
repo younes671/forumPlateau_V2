@@ -3,6 +3,8 @@ namespace App;
 
 abstract class Entity{
 
+    // hydrater c'est l'action de récupérer des valeurs stockées et de les injecter dans un objet
+
     protected function hydrate($data){
 
         foreach($data as $field => $value){
@@ -16,7 +18,7 @@ abstract class Entity{
                 // FQCName = Model\Managers\TopicManager;
                 $FQCName = "Model\Managers\\".$manName;
                 
-                // man = new Model\Managers\TopicManager
+                // $man = new Model\Managers\TopicManager
                 $man = new $FQCName();
                 // value = Model\Managers\TopicManager->findOneById(1)
                 $value = $man->findOneById($value);
