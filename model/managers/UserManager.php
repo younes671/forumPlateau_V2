@@ -13,4 +13,17 @@ class UserManager extends Manager{
     public function __construct(){
         parent::connect();
     }
+
+    public function findUserById($id) {
+
+        $sql = "SELECT * 
+                FROM ".$this->tableName."  
+                WHERE id_user = :id";
+       
+        // la requête renvoie plusieurs enregistrements --> getMultipleResults
+        return $this->getOneOrNullResult(
+            DAO::select($sql, ['id' => $id], false), 
+            $this->className
+        );
+    }
 }
