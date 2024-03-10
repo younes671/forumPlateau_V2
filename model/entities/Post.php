@@ -42,7 +42,8 @@ final class Post extends Entity
 
     public function getDateCreation()
     {
-        return $this->dateCreation = new DateTime();
+        $a = date_create($this->dateCreation)->format("d-m-Y à H:i");
+        return $a ;;
     }
 
     public function setText($text)

@@ -26,4 +26,27 @@ class UserManager extends Manager{
             $this->className
         );
     }
+
+    
+
+    // méthode finduserbyemail retourne l'email de l'utilisateur
+
+    public function findUserByEmail($email)
+    {
+        $sql = "SELECT * 
+        FROM ".$this->tableName."  
+        WHERE email = :email";
+
+        return $this->getOneOrNullResult(
+            DAO::select($sql, ['email' => $email], false), 
+            $this->className
+        );
+    }
+
+    // crée un nouveau utilisateur
+    
+    public function createUser($newUser)
+    {
+        return $this->add($newUser);
+    }
 }
