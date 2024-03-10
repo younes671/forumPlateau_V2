@@ -7,5 +7,5 @@
 
 <?php
 foreach($topics as $topic ){ ?>
-    <p><a href="index.php?ctrl=forum&action=listPostsByTopic&id=<?= $topic->getId() ?>"><?= $topic ?></a> par <?= $topic->getUser() . " publié le " . $topic->getDateCreation()->format("d-m-Y à H:i") ?></p>
+    <p><a href="index.php?ctrl=forum&action=listPostsByTopic&id=<?php echo $topic->getId() ?>"><?php echo $topic ?></a> par <?php echo $topic->getUser() ?> publié le <?php echo $topic->getDateCreation()?></p>
 <?php }

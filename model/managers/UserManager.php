@@ -49,4 +49,16 @@ class UserManager extends Manager{
     {
         return $this->add($newUser);
     }
+
+    public function findUserPassword($pass)
+    {
+        $sql = "SELECT * 
+        FROM ".$this->tableName."  
+        WHERE email = :email";
+
+        return $this->getOneOrNullResult(
+            DAO::select($sql, ['email' => $pass], false), 
+            $this->className
+        );
+    }
 }
